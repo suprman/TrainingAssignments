@@ -1,5 +1,5 @@
 class HappyString {
-    public String longestDiverseString(int a, int b, int c) {
+    public String Solution(int a, int b, int c) {
         StringBuilder sb = new StringBuilder();
         int size = a + b + c;
         int A = 0, B = 0, C = 0;
