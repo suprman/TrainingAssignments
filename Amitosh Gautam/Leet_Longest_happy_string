@@ -1,0 +1,74 @@
+public class Main
+{
+	public static void main(String[] args) {
+	    Solution s= new Solution();
+	    String p=s.longestDiverseString(1,1,7);
+	    System.out.println(p);
+}
+
+}
+class Solution {
+     
+    public String longestDiverseString(int a, int b, int c) {
+         String dStrg="";
+        int countera=0,counterb=0,counterc=0;
+        
+        
+        int N=a+b+c;
+        
+        for(int i=0;i<N;i++){
+            
+            if(a>=b && a>=c && a>1 && countera<2){
+                dStrg+="aa";
+                a-=2;
+                countera=2;
+                counterb=0;
+                counterc=0;
+            }
+            else if(b>=c && b>=a && b>1 && counterb<2){
+                dStrg+="bb";
+                b-=2;
+                counterb=2;
+                countera=0;
+                counterc=0;
+            }
+            else if(c>=b && c>=a && c>1 && counterc<2){
+                dStrg+="cc";
+                c-=2;
+                counterc=2;
+                counterb=0;
+                countera=0;
+            }    
+            
+            else if(a>0 && countera<2){
+                dStrg+="a";
+                a--;
+                countera++;
+                counterb=0;
+                counterc=0;
+                
+            }
+            
+            else if(b>0 && counterb<2){
+                dStrg+="b";
+                b--;
+                counterb++;
+                countera=0;
+                counterc=0;
+            }
+            
+            else if(c>0 && counterc<2){
+                dStrg+="c";
+                c--;
+                counterc++;
+                countera=0;
+                counterb=0;
+            }
+            
+        }
+        
+        
+        return dStrg;
+    }
+    
+}
