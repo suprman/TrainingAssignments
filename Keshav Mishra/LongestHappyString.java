@@ -12,7 +12,7 @@ public class LongestHappyString {
 }
 class LongestHappyStringTest{
     public String longestDiverseString(int a, int b, int c) {
-        String s="";
+        StringBuffer s = new StringBuffer();
         int countA=a,countB=b,countC=c;
         int occurA=0,occurB=0,occurC=0;
         while(true){
@@ -21,25 +21,25 @@ class LongestHappyStringTest{
         	}
             int k = max(countA,countB,countC);
         if(k==countA && occurA<2){
-            s = s.concat("a");
+        	s.append("a");
             countA--;
             occurA++;occurB=0;occurC=0;
         }else if(k==countB && occurB<2){
-            s = s.concat("b");
+        	s.append("b");
             countB--;
             occurA=0;occurB++;occurC=0;
         }else if(k==countC && occurC<2){
-            s= s.concat("c");
+        	s.append("c");
             countC--;
             occurA=0;occurB=0;occurC++;
         }else {
             if(k==countA) {
             	if(countB>0) {
-            		s=s.concat("b");
+            		s.append("b");
             		countB--;
             		occurA=0;occurB++;occurC=0;
             	}else if(countC > 0) {
-            		s=s.concat("c");
+            		s.append("c");
             		countC--;
             		occurA=0;occurB=0;occurC++;
             	}else {
@@ -47,11 +47,11 @@ class LongestHappyStringTest{
             	}
             }else if(k==countB) {
             	if(countA>0) {
-            		s=s.concat("a");
+            		s.append("a");
             		countA--;
             		occurA++;occurB=0;occurC=0;
             	}else if(countC > 0) {
-            		s=s.concat("c");
+            		s.append("c");
             		countC--;
             		occurA=0;occurB=0;occurC++;
             	}else {
@@ -59,11 +59,11 @@ class LongestHappyStringTest{
             	}
             }else if(k==countC) {
             	if(countA>0) {
-            		s=s.concat("a");
+            		s.append("a");
             		countA--;
             		occurA++;occurB=0;occurC=0;
             	}else if(countB > 0) {
-            		s=s.concat("b");
+            		s.append("b");
             		countB--;
             		occurA=0;occurB++;occurC=0;
             	}else {
@@ -74,7 +74,7 @@ class LongestHappyStringTest{
             }
         }
         }
-        return s;
+        return s.toString();
     }
     private int max(int a,int b,int c){
         if(a>=b && a>=c){
